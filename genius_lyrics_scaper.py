@@ -81,8 +81,15 @@ def get_lyrics(artist_name, song_name):
     
     # Finally, we print the lyrics
     print()
-    for i in song["Lyrics"][0]:
-        print(i)
+    if((len(song["Lyrics"]) < 1)):
+        print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+        print("The song or artist was not found,")
+        print("check for spelling errors and try again!")
+        print()
+        run_scraper();
+    else:
+        for i in song["Lyrics"][0]:
+            print(i)
     
 def main():
     run_scraper()
