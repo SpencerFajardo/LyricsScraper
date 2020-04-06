@@ -80,17 +80,22 @@ def get_lyrics(artist_name, song_name):
         song["Lyrics"].append(div.text.strip().split("\n"));
     
     # Finally, we print the lyrics
+    f = open(song_name + "-lyrics.lyr", 'w')
     print()
     if((len(song["Lyrics"]) < 1)):
         print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+        f.write("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" + "\n")
         print("The song or artist was not found,")
+        f.write("The song or artist was not found," + "\n")
         print("check for spelling errors and try again!")
+        f.write("check for spelling errors and try again!" + "\n")
         print()
         run_scraper();
     else:
         for i in song["Lyrics"][0]:
             print(i)
-    
+            f.write(i + "\n")
+    f.close()
 def main():
     run_scraper()
     
