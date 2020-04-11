@@ -80,7 +80,8 @@ def get_lyrics(artist_name, song_name):
         song["Lyrics"].append(div.text.strip().split("\n"));
     
     # Finally, we print the lyrics
-    f = open(song_name + "-lyrics.lyr", 'w')
+    song_name = song_name.replace("-","_")
+    f = open(song_name + ".lyr", 'w')
     print()
     if((len(song["Lyrics"]) < 1)):
         print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
